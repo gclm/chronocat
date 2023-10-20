@@ -86,8 +86,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          user_name: 'Il Harper'
-          user_email: 'hi@ilharper.com'
+          user_name: 'BuDingOwO'
+          user_email: 'ConBlueCut@outlook.com'
           external_repository: chrononeko/LiteLoaderQQNT-Plugin-Chronocat
           publish_branch: master
           publish_dir: build/dist/llqqnt/LiteLoaderQQNT-Plugin-Chronocat
