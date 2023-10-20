@@ -51,7 +51,7 @@ jobs:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
           user_name: 'Il Harper'
           user_email: 'hi@ilharper.com'
-          external_repository: chrononeko/chrononeko.github.io
+          external_repository: BuDingOwO/chrononeko.github.io
           publish_branch: master
           publish_dir: packages/docs/build
           enable_jekyll: true # Not to create .nojekyll since this is not a gh page
