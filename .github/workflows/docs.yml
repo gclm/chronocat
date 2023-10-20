@@ -36,8 +36,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          user_name: 'Il Harper'
-          user_email: 'hi@ilharper.com'
+          user_name: 'BuDingOwO'
+          user_email: 'Conbluecut@outlook.com'
           external_repository: BuDingOwO/chronocat-deploy
           publish_branch: master
           publish_dir: packages/docs/build
@@ -49,8 +49,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          user_name: 'Il Harper'
-          user_email: 'hi@ilharper.com'
+          user_name: 'BuDingOwO'
+          user_email: 'Conbluecut@outlook.com'
           external_repository: BuDingOwO/BuDingOwO.github.io
           publish_branch: master
           publish_dir: packages/docs/build
