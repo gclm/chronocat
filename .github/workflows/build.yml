@@ -33,16 +33,7 @@ jobs:
           yarn build
         shell: bash
 
-      - name: Zip QQNTim Plugin
-        run: |
-          cd build/dist/qqntim/qqntim-plugin-chronocat
-          zip -r ../qqntim-plugin-chronocat.zip *
-          cd ..
-          rm -r qqntim-plugin-chronocat
-          cd ../../..
-        shell: bash
-
-      - name: Upload Packages
+      - name: Upload Core Packages
         uses: actions/upload-artifact@v3
         with:
           name: chronocat-pkgs-${{ github.sha }}
@@ -66,16 +57,67 @@ jobs:
           name: chronocat-iife-${{ github.sha }}
           path: build/dist/iife
 
-      - name: show upload artifact
+      - name: Zip Packages
         run: |
-          ls -l build/dist
+          pwd && ls -l build/dist
+          cd build/dist/qqntim/qqntim-plugin-chronocat
+          zip -r ../../qqntim-plugin-chronocat.zip *
+          cd ../../llqqnt/LiteLoaderQQNT-Plugin-Chronocat
+          zip -r ../../LiteLoaderQQNT-Plugin-Chronocat.zip *
+          cd ../../
+          rm -rf llqqnt qqntim
+          pwd && ls -l build/dist
+          cd ../../
         shell: bash
 
-      - name: Publish LiteLoaderQQNT-Plugin-Chronocat
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 读取当前版本号
+        id: version
+        uses: ashley-taylor/read-json-property-action@v1.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/dist/llqqnt/LiteLoaderQQNT-Plugin-Chronocat
-          enable_jekyll: true # Not to create .nojekyll since this is not a gh page
-          commit_message: 'chore: publish ${{ github.sha }}'
+          path: ./packages/core/package.json
+          property: version
+
+      - name: Create Release and Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/heads/main')
+        with:
+          tag_name: v${{steps.version.outputs.value}}
+          name: 发布 v${{steps.version.outputs.value}} 版本
+          draft: false
+          prerelease: false
+          files: |
+            build/dist/*.tgz
+            build/dist/qqntim-plugin-chronocat.zip
+            build/dist/LiteLoaderQQNT-Plugin-Chronocat.zip
+
+#      - name: Build IIFE-TI
+#        if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+#        env:
+#          TI_KEY: ${{ secrets.TI_KEY }}
+#        run: |
+#          mkdir -p build/dist/iife-ti
+#          echo "$TI_KEY" > $RUNNER_TEMP/ti.pem
+#          openssl dgst -sha256 -sign $RUNNER_TEMP/ti.pem -keyform PEM -out build/dist/iife-ti/chronocat.js.ti.bin -binary build/dist/iife/src/chronocat.js
+#          rm $RUNNER_TEMP/ti.pem
+#          cat build/dist/iife/src/chronocat.js >> build/dist/iife-ti/chronocat.js.ti.bin
+#        shell: bash
+#
+#      - name: Upload IIFE-TI
+#        if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: chronocat-iife-ti-${{ github.sha }}
+#          path: build/dist/iife-ti/chronocat.js.ti.bin
+
+#      - name: Publish LiteLoaderQQNT-Plugin-Chronocat
+#        if: startsWith(github.ref, 'refs/tags/v')
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+#          user_name: 'BuDingOwO'
+#          user_email: 'ConBlueCut@outlook.com'
+#          external_repository: chrononeko/LiteLoaderQQNT-Plugin-Chronocat
+#          publish_branch: master
+#          publish_dir: build/dist/llqqnt/LiteLoaderQQNT-Plugin-Chronocat
+#          enable_jekyll: true # Not to create .nojekyll since this is not a gh page
+#          commit_message: 'chore: publish ${{ github.sha }}'
