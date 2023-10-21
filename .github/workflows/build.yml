@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  discussions: write
+
 jobs:
   build:
     name: build
@@ -38,23 +42,33 @@ jobs:
           cd ../../..
         shell: bash
 
-      - name: Upload Packages
-        uses: actions/upload-artifact@v3
+      # 上传zip包
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
         with:
-          name: chronocat-pkgs-${{ github.sha }}
-          path: build/dist/*.tgz
+          files: |
+            build/dist/*.tgz
+            build/dist/llqqnt
+            build/dist/qqntim
+            build/dist/iife
 
-      - name: Upload LiteLoaderQQNT-Plugin-Chronocat
-        uses: actions/upload-artifact@v3
-        with:
-          name: chronocat-llqqnt-${{ github.sha }}
-          path: build/dist/llqqnt
-
-      - name: Upload qqntim-plugin-chronocat
-        uses: actions/upload-artifact@v3
-        with:
-          name: chronocat-qqntim-${{ github.sha }}
-          path: build/dist/qqntim
+#      - name: Upload Packages
+#          uses: actions/upload-artifact@v3
+#          with:
+#            name: chronocat-pkgs-${{ github.sha }}
+#            path: build/dist/*.tgz
+#
+#        - name: Upload LiteLoaderQQNT-Plugin-Chronocat
+#          uses: actions/upload-artifact@v3
+#          with:
+#            name: chronocat-llqqnt-${{ github.sha }}
+#            path: build/dist/llqqnt
+#
+#        - name: Upload qqntim-plugin-chronocat
+#          uses: actions/upload-artifact@v3
+#          with:
+#            name: chronocat-qqntim-${{ github.sha }}
+#            path: build/dist/qqntim
 
 #      - name: Upload IIFE
 #        uses: actions/upload-artifact@v3
