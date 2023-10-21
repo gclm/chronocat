@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_chronocat_docs=self.webpackChunk_chronocat_docs||[]).push([[1609],{4976:a=>{a.exports=JSON.parse('{"label":"release","permalink":"/chronocat/blog/tags/release","allTagsPath":"/chronocat/blog/tags","count":1,"unlisted":false}')}}]);
