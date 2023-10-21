@@ -31,28 +31,12 @@ jobs:
           yarn workspace @chronocat/docs build
         shell: bash
 
-      - name: Publish to Vercel
+      - name: Publish to GitHub Pages
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          user_name: 'BuDingOwO'
-          user_email: 'Conbluecut@outlook.com'
-          external_repository: BuDingOwO/chronocat-deploy
-          publish_branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: packages/docs/build
           enable_jekyll: true # Not to create .nojekyll since this is not a gh page
           commit_message: 'chore: publish ${{ github.sha }}'
 
-      # - name: Publish to GitHub Pages
-      #   if: github.ref == 'refs/heads/master'
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     personal_token: ${{ secrets.DEPLOY_TOKEN }}
-      #     user_name: 'BuDingOwO'
-      #     user_email: 'Conbluecut@outlook.com'
-      #     external_repository: BuDingOwO/BuDingOwO.github.io
-      #     publish_branch: master
-      #     publish_dir: packages/docs/build
-      #     enable_jekyll: true # Not to create .nojekyll since this is not a gh page
-      #     commit_message: 'chore: publish ${{ github.sha }}'
