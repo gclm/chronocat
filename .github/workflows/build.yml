@@ -61,9 +61,9 @@ jobs:
         run: |
           pwd && ls -l build/dist
           cd build/dist/qqntim
-          zip -r ../qqntim-plugin-chronocat.zip *
+          zip -r ../chronocat-qqntim.zip *
           cd ../llqqnt
-          zip -r ../LiteLoaderQQNT-Plugin-Chronocat.zip *
+          zip -r ../chronocat-llqqnt.zip *
           cd ../
           rm -rf llqqnt qqntim
           pwd && ls -l
@@ -87,5 +87,5 @@ jobs:
           prerelease: false
           files: |
             build/dist/*.tgz
-            build/dist/qqntim-plugin-chronocat.zip
-            build/dist/LiteLoaderQQNT-Plugin-Chronocat.zip
+            build/dist/chronocat-qqntim.zip
+            build/dist/chronocat-llqqnt.zip
