@@ -60,11 +60,11 @@ jobs:
       - name: Zip Packages
         run: |
           pwd && ls -l build/dist
-          cd build/dist/qqntim/qqntim-plugin-chronocat
-          zip -r ../../qqntim-plugin-chronocat.zip *
-          cd ../../llqqnt/LiteLoaderQQNT-Plugin-Chronocat
-          zip -r ../../LiteLoaderQQNT-Plugin-Chronocat.zip *
-          cd ../../
+          cd build/dist/qqntim
+          zip -r ../qqntim-plugin-chronocat.zip *
+          cd ../llqqnt
+          zip -r ../LiteLoaderQQNT-Plugin-Chronocat.zip *
+          cd ../
           rm -rf llqqnt qqntim
           pwd && ls -l
           cd ../../
