@@ -42,40 +42,30 @@ jobs:
           cd ../../..
         shell: bash
 
-      # 上传zip包
-      - name: Upload Release Asset
-        uses: softprops/action-gh-release@v1
+      - name: Upload Packages
+        uses: actions/upload-artifact@v3
         with:
-          files: |
-            build/dist/*.tgz
-            build/dist/llqqnt
-            build/dist/qqntim
-            build/dist/iife
+          name: chronocat-pkgs-${{ github.sha }}
+          path: build/dist/*.tgz
 
-#      - name: Upload Packages
-#          uses: actions/upload-artifact@v3
-#          with:
-#            name: chronocat-pkgs-${{ github.sha }}
-#            path: build/dist/*.tgz
-#
-#        - name: Upload LiteLoaderQQNT-Plugin-Chronocat
-#          uses: actions/upload-artifact@v3
-#          with:
-#            name: chronocat-llqqnt-${{ github.sha }}
-#            path: build/dist/llqqnt
-#
-#        - name: Upload qqntim-plugin-chronocat
-#          uses: actions/upload-artifact@v3
-#          with:
-#            name: chronocat-qqntim-${{ github.sha }}
-#            path: build/dist/qqntim
+      - name: Upload LiteLoaderQQNT-Plugin-Chronocat
+        uses: actions/upload-artifact@v3
+        with:
+          name: chronocat-llqqnt-${{ github.sha }}
+          path: build/dist/llqqnt
 
-#      - name: Upload IIFE
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: chronocat-iife-${{ github.sha }}
-#          path: build/dist/iife
-#
+      - name: Upload qqntim-plugin-chronocat
+        uses: actions/upload-artifact@v3
+        with:
+          name: chronocat-qqntim-${{ github.sha }}
+          path: build/dist/qqntim
+
+      - name: Upload IIFE
+        uses: actions/upload-artifact@v3
+        with:
+          name: chronocat-iife-${{ github.sha }}
+          path: build/dist/iife
+
 #      - name: Build IIFE-TI
 #        if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
 #        env:
