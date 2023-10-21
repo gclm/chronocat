@@ -230,8 +230,8 @@ export const config: Config = {
   title,
   tagline,
 
-  url: 'https://chronocat.vercel.app',
-  baseUrl: '/',
+  url: 'https://gclm.github.io',
+  baseUrl: '/chronocat/',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
