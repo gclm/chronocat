@@ -22,7 +22,7 @@
 <p>首先要进行介绍的就是「远程登录」功能。「远程登录」允许你在浏览器内进行 QQ 的登录。当你在指定
 Chronocat 工作模式的命令行参数或环境变量中附加 <code>login</code> 开关时，Chronocat
 会在控制台打印一个链接，你可以使用这个链接进行登录。</p>
-<p><img loading="lazy" alt="远程登录" src="/chronocat/assets/images/login-dad5e89e1bd3316924cb811c620f834f.png" width="1585" height="783" class="img__Ss2"></p>
+<p><img loading="lazy" alt="远程登录" src="/chronocat/assets/images/login-7f191ff2285e02f25b1231d14a5916eb.png" width="1585" height="783" class="img__Ss2"></p>
 <p>在 <a href="/chronocat/launch">启动</a> 一节了解更多详情。</p>
 <h2 class="anchor anchorWithStickyNavbar_fF9Z" id="chronocat-headless无头模式">Chronocat Headless（无头模式）<a href="#chronocat-headless无头模式" class="hash-link" aria-label="Chronocat Headless（无头模式）的直接链接" title="Chronocat Headless（无头模式）的直接链接">​</a></h2>
 <p>有了远程登录的功能，我们就可以彻底抛弃 QQ 界面了。接下来要介绍的功能就是 Chronocat
@@ -41,7 +41,7 @@ Chrononeko 团队开发和维护，基于 LiteLoaderQQNT 的 Chronocat 官方镜
 <p>Chronocat 会随即启动并打印远程登录的链接，点击链接即可登录
 QQ。之后，即可立即开始使用 Satori 和 Red 服务了。</p>
 <p>目前版本的容器会占用约 250MiB 内存。随着无头模式的更新，未来的容器内存占用有望进一步降低。</p>
-<p><img loading="lazy" alt="镜像内存占用" src="/chronocat/assets/images/docker-mem-03513ed5eda90b75549196cad8e13d49.png" width="913" height="352" class="img__Ss2"></p>
+<p><img loading="lazy" alt="镜像内存占用" src="/chronocat/assets/images/docker-mem-903e79a66cc6a7365dd3dd6eabfba39c.png" width="913" height="352" class="img__Ss2"></p>
 <p>在 <a href="/chronocat/install/docker/official">Docker 安装</a> 一节了解更多详情。</p>
 <h2 class="anchor anchorWithStickyNavbar_fF9Z" id="satori-protocol">Satori Protocol<a href="#satori-protocol" class="hash-link" aria-label="Satori Protocol的直接链接" title="Satori Protocol的直接链接">​</a></h2>
 <p>Satori Protocol 是一个通用的、跨平台的聊天协议。从 v0.0.50 开始，Chronocat 将 Satori 作为推荐使用的协议实现。</p>
