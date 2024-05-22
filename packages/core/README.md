@@ -14,6 +14,10 @@
 
 ## :construction: WIP :construction:
 
+# 各位宝宝们 准备清理掉这个仓库了 然后旧版本bug很多
+
+
+
 此项目正处于其 v0.x 时期。在创建一个 Pull Request 之前，请务必先在 Bugtracker 上 [创建一个 Issue](https://github.com/chrononeko/bugtracker/issues/new/choose)。
 
 ## 使用
